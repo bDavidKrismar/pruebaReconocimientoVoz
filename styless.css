@@ -1,0 +1,13 @@
+body {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 100vh; /* Usa 100% de la altura de la ventana del navegador */
+    margin: 0; /* Elimina los márgenes por defecto */
+}
+
+button {
+    padding: 10px 20px; /* Añade un poco de relleno alrededor del texto del botón */
+    font-size: 16px; /* Aumenta el tamaño de la fuente */
+    cursor: pointer; /* Cambia el cursor a un puntero cuando se pasa sobre el botón */
+}
