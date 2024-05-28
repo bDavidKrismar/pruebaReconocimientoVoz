@@ -1,6 +1,8 @@
 document.getElementById('start-btn').addEventListener('click', function() {
-    if ('webkitSpeechRecognition' in window) {
-        var recognition = new webkitSpeechRecognition();
+    // Verifica si la API de reconocimiento de voz está disponible en el navegador
+    var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (SpeechRecognition) {
+        var recognition = new SpeechRecognition();
         recognition.continuous = false;
         recognition.lang = 'es-ES';
         
@@ -11,10 +13,10 @@ document.getElementById('start-btn').addEventListener('click', function() {
 
         recognition.onresult = function(event) {
             var colorHeard = event.results[0][0].transcript.trim().toLowerCase();
-            var textoReconocido=document.getElementById("textoRec");
+            var textoReconocido = document.getElementById("textoRec");
             console.log("entro");
             console.log(colorHeard);
-            document.getElementById("textoRec").innerText=colorHeard; 
+            textoReconocido.innerText = colorHeard; 
             changeBackgroundColor(colorHeard);
         };
 
@@ -31,10 +33,9 @@ document.getElementById('start-btn').addEventListener('click', function() {
 
         recognition.start();
     } else {
-        alert('Tu navegador no soporta webkitSpeechRecognition');
+        alert('Tu navegador no soporta reconocimiento de voz.');
     }
 });
-
 
 function changeBackgroundColor(color) {
     console.log("color", color);
@@ -55,8 +56,23 @@ function changeBackgroundColor(color) {
     var colorInEnglish = colorMap[color];
     if (colorInEnglish) {
         document.body.style.backgroundColor = colorInEnglish;
+        // Proporciona retroalimentación de voz (comentada)
+        // speakColorChange(color); 
     } else {
         console.log('Color no reconocido o soportado');
     }
 }
 
+// Función de retroalimentación de voz comentada
+/*
+function speakColorChange(color) {
+    if ('speechSynthesis' in window) {
+        var msg = new SpeechSynthesisUtterance();
+        msg.text = 'Has cambiado el color de fondo a ' + color;
+        msg.lang = 'es-ES';
+        window.speechSynthesis.speak(msg);
+    } else {
+        console.log('Tu navegador no soporta SpeechSynthesis');
+    }
+}
+*/
