@@ -11,6 +11,9 @@ document.getElementById('start-btn').addEventListener('click', function() {
 
         recognition.onresult = function(event) {
             var colorHeard = event.results[0][0].transcript.trim().toLowerCase();
+            var textoReconocido=document.getElementById("textoRec");
+            console.log("entro");
+            textoReconocido.text(colorHeard);
             changeBackgroundColor(colorHeard);
         };
 
@@ -33,6 +36,7 @@ document.getElementById('start-btn').addEventListener('click', function() {
 
 
 function changeBackgroundColor(color) {
+    console.log("color", color);
     // Mapeo de colores en español a inglés
     var colorMap = {
         'rojo': 'red',
