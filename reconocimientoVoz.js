@@ -14,6 +14,7 @@ document.getElementById('start-btn').addEventListener('click', function() {
             var textoReconocido=document.getElementById("textoRec");
             console.log("entro");
             console.log(colorHeard);
+            document.getElementById("textoRec").innerText=colorHeard; 
             changeBackgroundColor(colorHeard);
         };
 

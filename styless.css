@@ -11,3 +11,10 @@ button {
     font-size: 16px; /* Aumenta el tamaño de la fuente */
     cursor: pointer; /* Cambia el cursor a un puntero cuando se pasa sobre el botón */
 }
+
+#etiqueta{
+    width: 100px;
+    height: 80px;
+    background-color: black;
+    color: white;
+}
