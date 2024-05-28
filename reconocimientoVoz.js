@@ -13,7 +13,7 @@ document.getElementById('start-btn').addEventListener('click', function() {
             var colorHeard = event.results[0][0].transcript.trim().toLowerCase();
             var textoReconocido=document.getElementById("textoRec");
             console.log("entro");
-            textoReconocido.text(colorHeard);
+            console.log(colorHeard);
             changeBackgroundColor(colorHeard);
         };
 
